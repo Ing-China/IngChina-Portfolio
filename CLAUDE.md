@@ -15,23 +15,30 @@ This is a Next.js 15 portfolio project using the App Router architecture with th
 
 - **Framework**: Next.js 15.3.5 with App Router
 - **Styling**: Tailwind CSS v4 with PostCSS
-- **Typography**: Geist font family (Sans and Mono variants)
+- **Typography**: JetBrains Mono font family via next/font/google
 - **Language**: TypeScript with strict mode enabled
 - **Linting**: ESLint with Next.js configuration
 
 ### Project Structure
 
-- `app/`: Main application directory using App Router
-  - `layout.tsx`: Root layout with font configuration and metadata
-  - `page.tsx`: Homepage component
-  - `globals.css`: Global styles
-- `public/`: Static assets (SVG icons and images)
-- TypeScript path alias `@/*` maps to project root
+- `app/`: App Router pages with file-based routing
+  - `layout.tsx`: Root layout with theme provider and navigation
+  - `page.tsx`: Homepage with animated About section
+  - Individual route folders: `/resume`, `/projects`, `/articles`, `/contact`
+- `components/`: Reusable UI components (Header, Footer, ThemeToggle, ThemeProvider)
+- `public/`: Static assets and custom images
 
-### Key Technical Details
+### Component Architecture
 
-- Uses `next/font/google` for optimized font loading
-- Configured for dark mode support with CSS variables
-- Turbopack enabled for faster development builds
-- Strict TypeScript configuration with modern ES2017 target
-- CSS-in-JS styling patterns using Tailwind utility classes
+- **Layout System**: Single root layout wraps all pages with consistent header/footer
+- **Theme System**: Dark/light mode using `next-themes` with CSS custom properties
+- **Navigation**: Responsive header with mobile hamburger menu and smooth transitions
+- **Component Patterns**: Functional components with explicit `"use client"` directives
+- **Styling**: Utility-first Tailwind with custom CSS variables for theming
+
+### Code Style Conventions
+
+- **Components**: React Arrow Function Component Export (rafce) pattern
+- **Naming**: PascalCase for components, descriptive names without "Page" suffix
+- **TypeScript**: Strict mode with ES2017 target and `@/*` path alias
+- **Responsive Design**: Mobile-first approach with consistent spacing patterns

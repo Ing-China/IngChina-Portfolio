@@ -24,31 +24,31 @@ export default function Header() {
             <div className="hidden md:flex space-x-8">
               <Link
                 href="/"
-                className="hover:text-foreground/70 transition-colors"
+                className="text-sm font-medium hover:text-foreground/70 transition-colors"
               >
                 ABOUT
               </Link>
               <Link
                 href="/resume"
-                className="hover:text-foreground/70 transition-colors"
+                className="text-sm font-medium hover:text-foreground/70 transition-colors"
               >
                 RESUME
               </Link>
               <Link
                 href="/projects"
-                className="hover:text-foreground/70 transition-colors"
+                className="text-sm font-medium hover:text-foreground/70 transition-colors"
               >
                 PROJECTS
               </Link>
               <Link
                 href="/articles"
-                className="hover:text-foreground/70 transition-colors"
+                className="text-sm font-medium hover:text-foreground/70 transition-colors"
               >
                 ARTICLES
               </Link>
               <Link
                 href="/contact"
-                className="hover:text-foreground/70 transition-colors"
+                className="text-sm font-medium hover:text-foreground/70 transition-colors"
               >
                 CONTACT
               </Link>
@@ -103,35 +103,35 @@ export default function Header() {
           <div className="px-4 py-4 space-y-4 bg-background/95 backdrop-blur-md border-t border-foreground/10">
             <Link
               href="/"
-              className="block hover:text-foreground/70 transition-colors"
+              className="block text-sm font-medium hover:text-foreground/70 transition-colors"
               onClick={() => setIsMenuOpen(false)}
             >
               ABOUT
             </Link>
             <Link
               href="/resume"
-              className="block hover:text-foreground/70 transition-colors"
+              className="block text-sm font-medium hover:text-foreground/70 transition-colors"
               onClick={() => setIsMenuOpen(false)}
             >
               RESUME
             </Link>
             <Link
               href="/projects"
-              className="block hover:text-foreground/70 transition-colors"
+              className="block text-sm font-medium hover:text-foreground/70 transition-colors"
               onClick={() => setIsMenuOpen(false)}
             >
               PROJECTS
             </Link>
             <Link
               href="/articles"
-              className="block hover:text-foreground/70 transition-colors"
+              className="block text-sm font-medium hover:text-foreground/70 transition-colors"
               onClick={() => setIsMenuOpen(false)}
             >
               ARTICLES
             </Link>
             <Link
               href="/contact"
-              className="block hover:text-foreground/70 transition-colors"
+              className="block text-sm font-medium hover:text-foreground/70 transition-colors"
               onClick={() => setIsMenuOpen(false)}
             >
               CONTACT

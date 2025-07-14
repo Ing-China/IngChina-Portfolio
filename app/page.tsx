@@ -1,5 +1,5 @@
 import Image from "next/image";
-
+import Link from "next/link";
 import React from "react";
 
 const About = () => {
@@ -7,7 +7,7 @@ const About = () => {
     <div className="min-h-[calc(100vh-4rem-4rem)] flex items-center">
       <div className="max-w-5xl mx-auto p-4 sm:p-8 lg:p-12 w-full">
         <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-8 lg:gap-16">
-          <div className="space-y-4 sm:space-y-6 text-left lg:flex-1">
+          <div className="space-y-6 sm:space-y-8 text-left lg:flex-1">
             <div>
               <h1 className="text-4xl md:text-5xl tracking-tight font-bold ">
                 Hello,
@@ -21,6 +21,24 @@ const About = () => {
               crafting elegant UI/UX designs, and delivering seamless user
               experiences across mobile and web platforms.
             </p>
+
+            <Link href="/articles">
+              <button className="w-32 h-9 rounded-md bg-foreground/10 hover:bg-foreground/20 transition-colors flex items-center justify-center gap-2 text-foreground text-sm font-medium">
+                ARTICLES
+                <svg
+                  width="16"
+                  height="16"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                >
+                  <path d="M5 12h14M12 5l7 7-7 7" />
+                </svg>
+              </button>
+            </Link>
           </div>
 
           <div className="relative flex justify-center lg:justify-end lg:flex-shrink-0">

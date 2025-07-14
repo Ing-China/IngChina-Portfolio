@@ -8,8 +8,8 @@ export default function Footer() {
   return (
     <footer className="relative border-t border-foreground/10 h-16">
       <div className="max-w-5xl mx-auto px-4 sm:px-8 lg:px-12 h-full flex justify-between items-center">
-        <div className="text-foreground/60 font-medium">
-          <p>&copy; {new Date().getFullYear()} china</p>
+        <div className="text-foreground/60 font-medium text-sm">
+          <p>&copy; china {new Date().getFullYear()}</p>
         </div>
         <button
           onClick={scrollToTop}

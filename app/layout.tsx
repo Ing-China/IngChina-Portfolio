@@ -11,7 +11,10 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Ing China - Portfolio",
+  title: {
+    template: "%s - Ing China",
+    default: "SH Crypto - Cambodia's Leading Crypto Community",
+  },
   description:
     "Full-stack developer passionate about creating modern web applications and user experiences",
 };

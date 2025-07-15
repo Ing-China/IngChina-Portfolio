@@ -1,14 +1,28 @@
 "use client";
 import Link from "next/link";
 import Image from "next/image";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import ThemeToggle from "./ThemeToggle";
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 0);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   return (
-    <nav className="sticky top-0 w-full bg-background/80 backdrop-blur-md border-b border-foreground/10 z-50 h-16">
+    <nav
+      className={`sticky top-0 w-full bg-background/80 backdrop-blur-md z-50 h-16 transition-all duration-300 ${
+        isScrolled ? "border-b border-foreground/10" : ""
+      }`}
+    >
       <div className="max-w-5xl mx-auto px-4 sm:px-8 lg:px-12">
         <div className="flex justify-between items-center h-16">
           <Link href="/" className="hover:opacity-80 transition-opacity">

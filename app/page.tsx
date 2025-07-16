@@ -12,7 +12,7 @@ const About = () => {
               <h1 className="text-4xl md:text-5xl tracking-tight font-bold ">
                 Hello,
                 <br />
-                i&apos;m <span className="text-foreground">China</span>
+                I&apos;m <span className="text-foreground">China</span>
               </h1>
             </div>
             <p className="text-foreground max-w-lg">

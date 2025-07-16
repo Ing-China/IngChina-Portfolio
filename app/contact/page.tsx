@@ -1,6 +1,5 @@
 "use client";
-
-import React, { useState } from "react";
+import React from "react";
 import {
   FaGithub,
   FaLinkedin,
@@ -13,52 +12,6 @@ import {
 } from "react-icons/fa";
 
 const Contact = () => {
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    message: "",
-  });
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [submitStatus, setSubmitStatus] = useState<
-    "idle" | "success" | "error"
-  >("idle");
-
-  const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
-  ) => {
-    setFormData((prev) => ({
-      ...prev,
-      [e.target.name]: e.target.value,
-    }));
-  };
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setIsSubmitting(true);
-    setSubmitStatus("idle");
-
-    try {
-      const response = await fetch("/api/contact", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(formData),
-      });
-
-      if (response.ok) {
-        setSubmitStatus("success");
-        setFormData({ name: "", email: "", message: "" });
-      } else {
-        setSubmitStatus("error");
-      }
-    } catch (error) {
-      console.error("Error sending message:", error);
-      setSubmitStatus("error");
-    } finally {
-      setIsSubmitting(false);
-    }
-  };
 
   return (
     <div className="min-h-[calc(100vh-4rem-4rem)] flex items-center">
@@ -208,85 +161,53 @@ const Contact = () => {
 
         {/* Contact Form */}
         <div className="mt-8">
-          <h2 className="text-2xl font-bold mb-8">Send Message</h2>
-          <form onSubmit={handleSubmit} className="max-w-5xl mx-auto space-y-6">
+          <h2 className="text-2xl font-bold mb-6">Send a Message</h2>
+          <form className="space-y-6">
             <div>
-              <label
-                htmlFor="name"
-                className="block text-sm font-medium text-foreground mb-2"
-              >
+              <label htmlFor="name" className="block text-sm font-medium mb-2">
                 Name
               </label>
               <input
                 type="text"
                 id="name"
                 name="name"
-                value={formData.name}
-                onChange={handleChange}
-                required
-                className="w-full px-4 py-3 rounded-lg bg-foreground/5 border border-foreground/20 focus:border-foreground/50 focus:outline-none focus:ring-2 focus:ring-foreground/20 text-foreground placeholder-foreground/50"
+                className="w-full px-3 py-2 border border-foreground/20 rounded-md bg-background text-foreground placeholder:text-foreground/60 focus:outline-none focus:ring-2 focus:ring-foreground/20"
                 placeholder="Your name"
               />
             </div>
-
+            
             <div>
-              <label
-                htmlFor="email"
-                className="block text-sm font-medium text-foreground mb-2"
-              >
+              <label htmlFor="email" className="block text-sm font-medium mb-2">
                 Email
               </label>
               <input
                 type="email"
                 id="email"
                 name="email"
-                value={formData.email}
-                onChange={handleChange}
-                required
-                className="w-full px-4 py-3 rounded-lg bg-foreground/5 border border-foreground/20 focus:border-foreground/50 focus:outline-none focus:ring-2 focus:ring-foreground/20 text-foreground placeholder-foreground/50"
+                className="w-full px-3 py-2 border border-foreground/20 rounded-md bg-background text-foreground placeholder:text-foreground/60 focus:outline-none focus:ring-2 focus:ring-foreground/20"
                 placeholder="your.email@example.com"
               />
             </div>
-
+            
             <div>
-              <label
-                htmlFor="message"
-                className="block text-sm font-medium text-foreground mb-2"
-              >
+              <label htmlFor="message" className="block text-sm font-medium mb-2">
                 Message
               </label>
               <textarea
                 id="message"
                 name="message"
-                value={formData.message}
-                onChange={handleChange}
-                rows={5}
-                required
-                className="w-full px-4 py-3 rounded-lg bg-foreground/5 border border-foreground/20 focus:border-foreground/50 focus:outline-none focus:ring-2 focus:ring-foreground/20 text-foreground placeholder-foreground/50 resize-none"
+                rows={6}
+                className="w-full px-3 py-2 border border-foreground/20 rounded-md bg-background text-foreground placeholder:text-foreground/60 focus:outline-none focus:ring-2 focus:ring-foreground/20 resize-none"
                 placeholder="Your message..."
               />
             </div>
-
+            
             <button
               type="submit"
-              disabled={isSubmitting}
-              className="w-full py-3 px-6 rounded-lg bg-foreground text-background hover:bg-foreground/90 disabled:opacity-50 disabled:cursor-not-allowed transition-colors font-medium"
+              className="w-full bg-foreground text-background py-2 px-4 rounded-md hover:bg-foreground/90 transition-colors"
             >
-              {isSubmitting ? "Sending..." : "Send Message"}
+              Send Message
             </button>
-
-            {/* Status Messages */}
-            {submitStatus === "success" && (
-              <div className="p-4 rounded-lg bg-green-100 border border-green-300 text-green-700">
-                ✅ Message sent successfully! I&apos;ll get back to you soon.
-              </div>
-            )}
-            {submitStatus === "error" && (
-              <div className="p-4 rounded-lg bg-red-100 border border-red-300 text-red-700">
-                ❌ Failed to send message. Please try again or contact me
-                directly.
-              </div>
-            )}
           </form>
         </div>
       </div>

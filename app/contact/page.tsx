@@ -68,7 +68,7 @@ const Contact = () => {
             Contact
           </h1>
           <p className="text-foreground/80 leading-relaxed">
-            I'm always open to discussing new opportunities, collaborations, or
+            I&apos;m always open to discussing new opportunities, collaborations, or
             just having a chat about technology. Feel free to reach out through
             any of the channels below.
           </p>
@@ -278,7 +278,7 @@ const Contact = () => {
             {/* Status Messages */}
             {submitStatus === "success" && (
               <div className="p-4 rounded-lg bg-green-100 border border-green-300 text-green-700">
-                ✅ Message sent successfully! I'll get back to you soon.
+                ✅ Message sent successfully! I&apos;ll get back to you soon.
               </div>
             )}
             {submitStatus === "error" && (

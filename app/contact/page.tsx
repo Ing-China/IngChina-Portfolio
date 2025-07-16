@@ -105,7 +105,7 @@ const Contact = () => {
               </div>
               <div>
                 <h3 className="font-medium text-foreground">GitHub</h3>
-                <span className="text-foreground/70">Ing-China</span>
+                <span className="text-foreground/70">@ingchina</span>
               </div>
             </button>
 
@@ -118,7 +118,7 @@ const Contact = () => {
               </div>
               <div>
                 <h3 className="font-medium text-foreground">Telegram</h3>
-                <span className="text-foreground/70">Ing_China</span>
+                <span className="text-foreground/70">@ingchina</span>
               </div>
             </button>
 
@@ -133,7 +133,7 @@ const Contact = () => {
               </div>
               <div>
                 <h3 className="font-medium text-foreground">Facebook</h3>
-                <span className="text-foreground/70">Ing China</span>
+                <span className="text-foreground/70">@ingchina</span>
               </div>
             </button>
           </div>
@@ -154,7 +154,7 @@ const Contact = () => {
               </div>
               <div>
                 <h3 className="font-medium text-foreground">LinkedIn</h3>
-                <span className="text-foreground/70">Ing China</span>
+                <span className="text-foreground/70">@ingchina</span>
               </div>
             </button>
 
@@ -167,7 +167,7 @@ const Contact = () => {
               </div>
               <div>
                 <h3 className="font-medium text-foreground">Twitter</h3>
-                <span className="text-foreground/70">IChina6677</span>
+                <span className="text-foreground/70">@ingchina</span>
               </div>
             </button>
 
@@ -185,7 +185,7 @@ const Contact = () => {
               </div>
               <div>
                 <h3 className="font-medium text-foreground">Instagram</h3>
-                <span className="text-foreground/70">china_asdfghjkl</span>
+                <span className="text-foreground/70">@ingchina</span>
               </div>
             </button>
 
@@ -200,7 +200,7 @@ const Contact = () => {
               </div>
               <div>
                 <h3 className="font-medium text-foreground">YouTube</h3>
-                <span className="text-foreground/70">IngChina</span>
+                <span className="text-foreground/70">@ingchina</span>
               </div>
             </button>
           </div>

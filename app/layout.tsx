@@ -11,12 +11,37 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://ingchina.dev"),
   title: {
     template: "%s - Ing China",
     default: "Ing China - Full-Stack Developer",
   },
   description:
-    "Full-stack developer passionate about creating modern web applications and user experiences",
+    "Full-stack developer passionate about creating modern web and mobile applications with exceptional user experiences",
+  openGraph: {
+    title: "Ing China - Full-Stack Developer",
+    description:
+      "Full-stack developer passionate about creating modern web and mobile applications with exceptional user experiences",
+    url: "https://ingchina.dev",
+    siteName: "Ing China Portfolio",
+    images: [
+      {
+        url: "/images/logo.png",
+        width: 1200,
+        height: 630,
+        alt: "Ing China Portfolio",
+      },
+    ],
+    locale: "en_US",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Ing China - Full-Stack Developer",
+    description:
+      "Full-stack developer passionate about creating modern web and mobile applications with exceptional user experiences",
+    images: ["/images/logo.png"],
+  },
 };
 
 export default function RootLayout({

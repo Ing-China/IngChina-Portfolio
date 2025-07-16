@@ -127,10 +127,3 @@ next-env.d.ts
 .out
 .storybook-out
 storybook-static
-
-# wrangler
-.wrangler/
-.dev.vars
-
-#opennext
-.open-next/

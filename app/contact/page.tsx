@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import React, { useState } from "react";
 import {
   FaGithub,
   FaLinkedin,
@@ -11,8 +11,101 @@ import {
   FaYoutube,
 } from "react-icons/fa";
 
-const Contact = () => {
+interface FormData {
+  name: string;
+  email: string;
+  message: string;
+}
 
+interface FormErrors {
+  name?: string;
+  email?: string;
+  message?: string;
+}
+
+const Contact = () => {
+  const [formData, setFormData] = useState<FormData>({
+    name: "",
+    email: "",
+    message: "",
+  });
+  const [errors, setErrors] = useState<FormErrors>({});
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState<
+    "idle" | "success" | "error"
+  >("idle");
+
+  const validateForm = (): boolean => {
+    const newErrors: FormErrors = {};
+
+    if (!formData.name.trim()) {
+      newErrors.name = "Name is required";
+    }
+
+    if (!formData.email.trim()) {
+      newErrors.email = "Email is required";
+    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
+      newErrors.email = "Please enter a valid email address";
+    }
+
+    if (!formData.message.trim()) {
+      newErrors.message = "Message is required";
+    } else if (formData.message.trim().length < 10) {
+      newErrors.message = "Message must be at least 10 characters long";
+    }
+
+    setErrors(newErrors);
+    return Object.keys(newErrors).length === 0;
+  };
+
+  const handleInputChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({
+      ...prev,
+      [name]: value,
+    }));
+
+    if (errors[name as keyof FormErrors]) {
+      setErrors((prev) => ({
+        ...prev,
+        [name]: undefined,
+      }));
+    }
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+
+    if (!validateForm()) {
+      return;
+    }
+
+    setIsSubmitting(true);
+    setSubmitStatus("idle");
+
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
+
+      if (response.ok) {
+        setSubmitStatus("success");
+        setFormData({ name: "", email: "", message: "" });
+      } else {
+        setSubmitStatus("error");
+      }
+    } catch {
+      setSubmitStatus("error");
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
   return (
     <div className="min-h-[calc(100vh-4rem-4rem)] flex items-center">
       <div className="max-w-5xl mx-auto p-4 sm:p-8 lg:p-12 w-full">
@@ -21,9 +114,9 @@ const Contact = () => {
             Contact
           </h1>
           <p className="text-foreground/80 leading-relaxed">
-            I&apos;m always open to discussing new opportunities, collaborations, or
-            just having a chat about technology. Feel free to reach out through
-            any of the channels below.
+            I&apos;m always open to discussing new opportunities,
+            collaborations, or just having a chat about technology. Feel free to
+            reach out through any of the channels below.
           </p>
         </div>
 
@@ -162,7 +255,26 @@ const Contact = () => {
         {/* Contact Form */}
         <div className="mt-8">
           <h2 className="text-2xl font-bold mb-6">Send a Message</h2>
-          <form className="space-y-6">
+
+          {submitStatus === "success" && (
+            <div className="mb-6 p-4 bg-green-50 border border-green-200 rounded-md">
+              <p className="text-green-700">
+                ✓ Your message has been sent successfully! I&apos;ll get back to
+                you soon.
+              </p>
+            </div>
+          )}
+
+          {submitStatus === "error" && (
+            <div className="mb-6 p-4 bg-red-50 border border-red-200 rounded-md">
+              <p className="text-red-700">
+                ✗ There was an error sending your message. Please try again or
+                contact me directly.
+              </p>
+            </div>
+          )}
+
+          <form onSubmit={handleSubmit} className="space-y-6">
             <div>
               <label htmlFor="name" className="block text-sm font-medium mb-2">
                 Name
@@ -171,11 +283,21 @@ const Contact = () => {
                 type="text"
                 id="name"
                 name="name"
-                className="w-full px-3 py-2 border border-foreground/20 rounded-md bg-background text-foreground placeholder:text-foreground/60 focus:outline-none focus:ring-2 focus:ring-foreground/20"
+                value={formData.name}
+                onChange={handleInputChange}
+                className={`w-full px-3 py-2 border rounded-md bg-background text-foreground placeholder:text-foreground/60 focus:outline-none focus:ring-2 transition-colors ${
+                  errors.name
+                    ? "border-red-500 focus:ring-red-500/20"
+                    : "border-foreground/20 focus:ring-foreground/20"
+                }`}
                 placeholder="Your name"
+                disabled={isSubmitting}
               />
+              {errors.name && (
+                <p className="mt-1 text-sm text-red-600">{errors.name}</p>
+              )}
             </div>
-            
+
             <div>
               <label htmlFor="email" className="block text-sm font-medium mb-2">
                 Email
@@ -184,29 +306,57 @@ const Contact = () => {
                 type="email"
                 id="email"
                 name="email"
-                className="w-full px-3 py-2 border border-foreground/20 rounded-md bg-background text-foreground placeholder:text-foreground/60 focus:outline-none focus:ring-2 focus:ring-foreground/20"
+                value={formData.email}
+                onChange={handleInputChange}
+                className={`w-full px-3 py-2 border rounded-md bg-background text-foreground placeholder:text-foreground/60 focus:outline-none focus:ring-2 transition-colors ${
+                  errors.email
+                    ? "border-red-500 focus:ring-red-500/20"
+                    : "border-foreground/20 focus:ring-foreground/20"
+                }`}
                 placeholder="your.email@example.com"
+                disabled={isSubmitting}
               />
+              {errors.email && (
+                <p className="mt-1 text-sm text-red-600">{errors.email}</p>
+              )}
             </div>
-            
+
             <div>
-              <label htmlFor="message" className="block text-sm font-medium mb-2">
+              <label
+                htmlFor="message"
+                className="block text-sm font-medium mb-2"
+              >
                 Message
               </label>
               <textarea
                 id="message"
                 name="message"
                 rows={6}
-                className="w-full px-3 py-2 border border-foreground/20 rounded-md bg-background text-foreground placeholder:text-foreground/60 focus:outline-none focus:ring-2 focus:ring-foreground/20 resize-none"
+                value={formData.message}
+                onChange={handleInputChange}
+                className={`w-full px-3 py-2 border rounded-md bg-background text-foreground placeholder:text-foreground/60 focus:outline-none focus:ring-2 resize-none transition-colors ${
+                  errors.message
+                    ? "border-red-500 focus:ring-red-500/20"
+                    : "border-foreground/20 focus:ring-foreground/20"
+                }`}
                 placeholder="Your message..."
+                disabled={isSubmitting}
               />
+              {errors.message && (
+                <p className="mt-1 text-sm text-red-600">{errors.message}</p>
+              )}
             </div>
-            
+
             <button
               type="submit"
-              className="w-full bg-foreground text-background py-2 px-4 rounded-md hover:bg-foreground/90 transition-colors"
+              disabled={isSubmitting}
+              className={`w-full py-2 px-4 rounded-md font-medium transition-colors ${
+                isSubmitting
+                  ? "bg-foreground/50 text-background/50 cursor-not-allowed"
+                  : "bg-foreground text-background hover:bg-foreground/90"
+              }`}
             >
-              Send Message
+              {isSubmitting ? "Sending..." : "Send Message"}
             </button>
           </form>
         </div>

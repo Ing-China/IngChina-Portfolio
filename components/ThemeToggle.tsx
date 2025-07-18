@@ -13,7 +13,7 @@ export default function ThemeToggle() {
 
   if (!mounted) {
     return (
-      <button 
+      <button
         className="w-9 h-9 rounded-md bg-foreground/10 flex items-center justify-center"
         disabled
       >

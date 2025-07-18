@@ -26,7 +26,7 @@ export const metadata: Metadata = {
     siteName: "Ing China Portfolio",
     images: [
       {
-        url: "/images/logo.png",
+        url: "/images/metadata.png",
         width: 1200,
         height: 630,
         alt: "Ing China Portfolio",
@@ -40,7 +40,7 @@ export const metadata: Metadata = {
     title: "Ing China - Full-Stack Developer",
     description:
       "Full-stack developer passionate about creating modern web and mobile applications with exceptional user experiences",
-    images: ["/images/logo.png"],
+    images: ["/images/metadata.png"],
   },
 };
 

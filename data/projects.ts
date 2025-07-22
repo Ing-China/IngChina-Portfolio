@@ -83,4 +83,29 @@ export const projects: Project[] = [
     githubUrl: "https://github.com/Ing-China/EasyCO.git",
     image: "/projects/project4.jpg",
   },
+  {
+    id: "5",
+    title: "Khmer Market",
+    description:
+      "Local marketplace mobile application connecting Cambodian communities with businesses, featuring location-based services and comprehensive e-commerce platform",
+    technologies: [
+      "React Native",
+      "TypeScript",
+      "Google Maps API",
+      "iOS",
+      "Android",
+      "Location Services",
+    ],
+    features: [
+      "Interactive map with business location discovery",
+      "Multi-category marketplace (clothing, accessories, services)",
+      "Location-based business search and filtering",
+      "Khmer language localization and cultural adaptation",
+      "Real-time business information and contact details",
+      "Cross-platform mobile shopping experience",
+    ],
+    category: "mobile",
+    // githubUrl: "https://github.com/Ing-China/Khmer-Market.git",
+    image: "/projects/project5.jpg",
+  },
 ];

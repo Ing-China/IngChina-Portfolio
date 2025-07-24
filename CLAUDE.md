@@ -8,28 +8,37 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 - `npm run build`: Build the application for production
 - `npm run start`: Start production server
 - `npm run lint`: Run ESLint to check for code quality issues
+- `npm run preview`: Build and preview using OpenNext for Cloudflare
+- `npm run deploy`: Build and deploy to Cloudflare Workers
+- `npm run upload`: Build and upload to Cloudflare
+- `npm run cf-typegen`: Generate Cloudflare types for the environment
 
 ## Architecture Overview
 
 This is a Next.js 15 portfolio project using the App Router architecture with the following key characteristics:
 
-- **Framework**: Next.js 15.3.5 with App Router
+- **Framework**: Next.js 15.3.5 with App Router and Turbopack for development
 - **Styling**: Tailwind CSS v4 with PostCSS
 - **Typography**: JetBrains Mono font family via next/font/google
-- **Language**: TypeScript with strict mode enabled
+- **Language**: TypeScript with strict mode enabled (ES2017 target)
 - **Linting**: ESLint with Next.js configuration
-- **Email Service**: Resend API for contact form functionality
+- **Icons**: React Icons for UI icons
+- **Theme Management**: next-themes for dark/light mode switching
+- **Deployment**: Cloudflare Workers via OpenNext with R2 bucket for caching
 
 ### Project Structure
 
 - `app/`: App Router pages with file-based routing
-  - `api/contact/route.ts`: Contact form API endpoint using Resend
+  - `api/contact/route.ts`: Contact form API endpoint
   - `layout.tsx`: Root layout with theme provider and navigation
   - `page.tsx`: Homepage with animated About section
   - Individual route folders: `/resume`, `/projects`, `/articles`, `/contact`
-- `components/`: Reusable UI components (Header, Footer, ThemeToggle, ThemeProvider)
-- `public/images/`: Static assets including logo.png and profile images
-- `.env.local`: Environment variables (RESEND_API_KEY)
+  - Dynamic routes: `/projects/[id]` and `/articles/[slug]`
+- `components/`: Reusable UI components (Header, Footer, ThemeToggle, ThemeProvider, CodeBlock)
+- `data/`: Static data files for projects and articles
+- `types/`: TypeScript type definitions
+- `public/`: Static assets organized by category (images, projects, articles)
+- Configuration files: `wrangler.jsonc`, `open-next.config.ts` for Cloudflare deployment
 
 ### Component Architecture
 
@@ -39,16 +48,15 @@ This is a Next.js 15 portfolio project using the App Router architecture with th
 - **Component Patterns**: Functional components with explicit `"use client"` directives for interactivity
 - **Styling**: Utility-first Tailwind with custom CSS variables for theming
 
-### Email System Architecture
+### Contact Form System
 
-The contact form uses a sophisticated email system built on Resend:
+The contact form integrates with external email service:
 
-- **API Route**: `/app/api/contact/route.ts` handles form submissions
-- **Validation**: Client and server-side validation for name, email, and message
-- **Email Templates**: Professional HTML and plain text versions
-- **Domain Setup**: Configured for `ingchina.dev` domain with proper headers
+- **API Route**: `/app/api/contact/route.ts` handles form submissions with proper validation
+- **Email Templates**: Professional HTML and plain text versions with styled layouts
 - **Error Handling**: Comprehensive error responses and status management
-- **Security**: Input validation, proper headers, and anti-spam measures
+- **Security**: Input validation and proper error handling
+- **Configuration**: Uses environment variables for API keys and email settings
 
 ### Interactive Features
 
@@ -61,13 +69,25 @@ The contact form uses a sophisticated email system built on Resend:
 
 - **Components**: React Arrow Function Component Export (rafce) pattern
 - **Naming**: PascalCase for components, descriptive names without "Page" suffix
-- **TypeScript**: Strict mode with ES2017 target and `@/*` path alias
+- **TypeScript**: Strict mode with ES2017 target and `@/*` path alias for imports
 - **Responsive Design**: Mobile-first approach with consistent spacing patterns
 - **Client Components**: Use `"use client"` directive for any component requiring interactivity
 - **API Routes**: RESTful patterns with proper error handling and validation
+- **Data Management**: Static data files in `/data` directory for projects and articles
 
-### Environment Configuration
+### Deployment Architecture
 
-- **RESEND_API_KEY**: Required for contact form functionality
-- **Domain**: Currently set up for `ingchina.dev` with fallback to `onboarding@resend.dev`
-- **Email Target**: All contact form submissions go to `ingchina2004@gmail.com`
+This portfolio is configured for deployment on Cloudflare Workers:
+
+- **Build Tool**: OpenNext for Cloudflare compatibility
+- **Asset Handling**: Static assets served via Cloudflare's CDN
+- **Caching**: R2 bucket for incremental cache storage
+- **Configuration**: `wrangler.jsonc` defines worker settings and bindings
+- **Worker Name**: `ingchina-portfolio` with Node.js compatibility enabled
+
+### Content Management
+
+- **Projects**: Defined in `/data/projects.ts` with TypeScript interfaces
+- **Articles**: Managed through `/data/articles.ts` with dynamic routing
+- **Static Assets**: Organized in `/public` with category-specific folders
+- **SEO**: Comprehensive metadata configuration in root layout with OpenGraph support

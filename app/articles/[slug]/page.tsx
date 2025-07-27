@@ -159,9 +159,10 @@ const ArticleDetail = async ({ params }: ArticleDetailProps) => {
     // </div>
 
     <div className="min-h-[calc(100vh-4rem-4rem)] flex items-center justify-center">
-      <div className="text-center">
-        <h1 className="text-2xl font-bold mb-4">🚧 Article in Development</h1>
-        <p className="text-foreground/80">
+      <div className="text-center py-12">
+        <div className="text-4xl mb-4">🚧</div>
+        <h3 className="text-xl font-semibold mb-2">Article in Development</h3>
+        <p className="text-foreground/60">
           This article is currently being written. Please check back later.
         </p>
       </div>

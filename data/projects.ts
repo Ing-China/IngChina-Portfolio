@@ -106,6 +106,7 @@ export const projects: Project[] = [
     ],
     category: "mobile",
     // githubUrl: "https://github.com/Ing-China/Khmer-Market.git",
+    appStoreUrl: "https://apps.apple.com/us/app/kh-market/id6749251457",
     image: "/projects/project5.jpg",
   },
 ];

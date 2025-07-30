@@ -205,7 +205,9 @@ const Contact = () => {
             </button>
 
             <button
-              onClick={() => window.open("https://x.com/IChina6677", "_blank")}
+              onClick={() =>
+                window.open("https://x.com/ingchina2004", "_blank")
+              }
               className="w-full flex items-center gap-4 p-4 rounded-lg bg-foreground/5 hover:bg-foreground/10 transition-colors cursor-pointer text-left"
             >
               <div className="w-12 h-12 rounded-full bg-foreground/10 flex items-center justify-center">

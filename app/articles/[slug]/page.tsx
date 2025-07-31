@@ -1,7 +1,7 @@
 import React from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { FaArrowLeft, FaClock, FaCalendar } from "react-icons/fa";
+import { FaArrowLeft, FaClock, FaCalendar, FaArrowRight } from "react-icons/fa";
 import { notFound } from "next/navigation";
 import ReactMarkdown from "react-markdown";
 import type { Components } from "react-markdown";
@@ -32,6 +32,11 @@ const ArticleDetail = async ({ params }: ArticleDetailProps) => {
 
   // Get article content from external data file
   const articleContent = articleContents[slug] || "";
+
+  // Navigation logic
+  const currentIndex = articles.findIndex((a) => a.slug === slug);
+  const previousArticle = currentIndex > 0 ? articles[currentIndex - 1] : null;
+  const nextArticle = currentIndex < articles.length - 1 ? articles[currentIndex + 1] : null;
 
   const formatDate = (dateString: string) => {
     return new Date(dateString).toLocaleDateString("en-US", {
@@ -90,6 +95,18 @@ const ArticleDetail = async ({ params }: ArticleDetailProps) => {
     strong: ({ children }) => (
       <strong className="text-foreground font-semibold">{children}</strong>
     ),
+    img: ({ src, alt }) => (
+      <div className="my-8">
+        <Image
+          src={String(src || "")}
+          alt={String(alt || "")}
+          width={800}
+          height={400}
+          className="rounded-lg shadow-lg mx-auto"
+          priority
+        />
+      </div>
+    ),
   };
 
   return (
@@ -129,7 +146,7 @@ const ArticleDetail = async ({ params }: ArticleDetailProps) => {
         {/* Article Image */}
         <div className="mb-8 rounded-lg overflow-hidden">
           <Image
-            src="/articles/article1.png"
+            src={`/images/articles/article${article.id}.png`}
             alt={article.title}
             width={800}
             height={400}
@@ -145,8 +162,47 @@ const ArticleDetail = async ({ params }: ArticleDetailProps) => {
           </ReactMarkdown>
         </div>
 
+        {/* Article Navigation */}
+        <div className="mt-12 pt-8 border-t border-foreground/10">
+          <div className="flex justify-between items-center">
+            {previousArticle ? (
+              <Link
+                href={`/articles/${previousArticle.slug}`}
+                className="group flex items-center gap-3 text-foreground/80 hover:text-foreground transition-colors"
+              >
+                <FaArrowLeft className="w-4 h-4" />
+                <div className="text-left">
+                  <div className="text-sm text-foreground/60">Previous</div>
+                  <div className="font-medium group-hover:underline">
+                    {previousArticle.title}
+                  </div>
+                </div>
+              </Link>
+            ) : (
+              <div />
+            )}
+
+            {nextArticle ? (
+              <Link
+                href={`/articles/${nextArticle.slug}`}
+                className="group flex items-center gap-3 text-foreground/80 hover:text-foreground transition-colors"
+              >
+                <div className="text-right">
+                  <div className="text-sm text-foreground/60">Next</div>
+                  <div className="font-medium group-hover:underline">
+                    {nextArticle.title}
+                  </div>
+                </div>
+                <FaArrowRight className="w-4 h-4" />
+              </Link>
+            ) : (
+              <div />
+            )}
+          </div>
+        </div>
+
         {/* Back to Articles */}
-        <div className="mt-12 pt-8 border-t border-foreground/10 text-center">
+        <div className="mt-8 pt-8 border-t border-foreground/10 text-center">
           <Link
             href="/articles"
             className="inline-flex items-center gap-2 text-foreground/80 hover:text-foreground transition-colors"

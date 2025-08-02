@@ -85,7 +85,7 @@ export const projects: Project[] = [
   },
   {
     id: "5",
-    title: "Khmer Market",
+    title: "KH Market",
     description:
       "Local marketplace mobile application connecting Cambodian communities with businesses, featuring location-based services and comprehensive e-commerce platform",
     technologies: [

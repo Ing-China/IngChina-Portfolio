@@ -154,6 +154,14 @@ export default function RootLayout({
           {
             "@type": "SiteNavigationElement",
             position: 2,
+            name: "Resume",
+            description:
+              "View my professional experience, skills, and educational background.",
+            url: "https://ingchina.dev/resume",
+          },
+          {
+            "@type": "SiteNavigationElement",
+            position: 3,
             name: "Projects",
             description:
               "Explore my portfolio of web and mobile applications built with modern technologies.",
@@ -161,19 +169,11 @@ export default function RootLayout({
           },
           {
             "@type": "SiteNavigationElement",
-            position: 3,
+            position: 4,
             name: "Articles",
             description:
               "Read technical articles and insights about web development and programming.",
             url: "https://ingchina.dev/articles",
-          },
-          {
-            "@type": "SiteNavigationElement",
-            position: 4,
-            name: "Resume",
-            description:
-              "View my professional experience, skills, and educational background.",
-            url: "https://ingchina.dev/resume",
           },
           {
             "@type": "SiteNavigationElement",

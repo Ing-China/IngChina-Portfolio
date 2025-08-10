@@ -142,17 +142,21 @@ export default function RootLayout({
       },
       mainEntity: {
         "@type": "ItemList",
+        numberOfItems: 5,
+        itemListOrder: "https://schema.org/ItemListOrderAscending",
         itemListElement: [
           {
             "@type": "SiteNavigationElement",
+            "@id": "https://ingchina.dev/#about",
             position: 1,
             name: "About",
             description:
               "Learn about Ing China, a full-stack developer passionate about creating modern applications.",
-            url: "https://ingchina.dev",
+            url: "https://ingchina.dev/",
           },
           {
             "@type": "SiteNavigationElement",
+            "@id": "https://ingchina.dev/#resume",
             position: 2,
             name: "Resume",
             description:
@@ -161,6 +165,7 @@ export default function RootLayout({
           },
           {
             "@type": "SiteNavigationElement",
+            "@id": "https://ingchina.dev/#projects",
             position: 3,
             name: "Projects",
             description:
@@ -169,6 +174,7 @@ export default function RootLayout({
           },
           {
             "@type": "SiteNavigationElement",
+            "@id": "https://ingchina.dev/#articles",
             position: 4,
             name: "Articles",
             description:
@@ -177,6 +183,7 @@ export default function RootLayout({
           },
           {
             "@type": "SiteNavigationElement",
+            "@id": "https://ingchina.dev/#contact",
             position: 5,
             name: "Contact",
             description:

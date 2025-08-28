@@ -72,7 +72,7 @@ const Resume = () => {
                     React Native Developer
                   </h3>
                   <span className="text-sm text-foreground/70 mt-1 sm:mt-0">
-                    Jul 2024 - Present
+                    Jul 2024 - August 2025
                   </span>
                 </div>
                 <p className="text-foreground/80 mb-3">
@@ -214,16 +214,22 @@ const Resume = () => {
                 </h3>
                 <div className="space-y-3">
                   <div className="flex justify-between items-center">
-                    <span className="text-foreground/80 text-sm">JavaScript</span>
+                    <span className="text-foreground/80 text-sm">
+                      JavaScript
+                    </span>
                     <span className="text-foreground/60 text-xs">Advanced</span>
                   </div>
                   <div className="flex justify-between items-center">
                     <span className="text-foreground/80 text-sm">Dart</span>
-                    <span className="text-foreground/60 text-xs">Intermediate</span>
+                    <span className="text-foreground/60 text-xs">
+                      Intermediate
+                    </span>
                   </div>
                   <div className="flex justify-between items-center">
                     <span className="text-foreground/80 text-sm">PHP</span>
-                    <span className="text-foreground/60 text-xs">Intermediate</span>
+                    <span className="text-foreground/60 text-xs">
+                      Intermediate
+                    </span>
                   </div>
                 </div>
               </div>
@@ -234,12 +240,16 @@ const Resume = () => {
                 </h3>
                 <div className="space-y-3">
                   <div className="flex justify-between items-center">
-                    <span className="text-foreground/80 text-sm">React Native</span>
+                    <span className="text-foreground/80 text-sm">
+                      React Native
+                    </span>
                     <span className="text-foreground/60 text-xs">Advanced</span>
                   </div>
                   <div className="flex justify-between items-center">
                     <span className="text-foreground/80 text-sm">Flutter</span>
-                    <span className="text-foreground/60 text-xs">Intermediate</span>
+                    <span className="text-foreground/60 text-xs">
+                      Intermediate
+                    </span>
                   </div>
                   <div className="flex justify-between items-center">
                     <span className="text-foreground/80 text-sm">React JS</span>
@@ -251,7 +261,9 @@ const Resume = () => {
                   </div>
                   <div className="flex justify-between items-center">
                     <span className="text-foreground/80 text-sm">Laravel</span>
-                    <span className="text-foreground/60 text-xs">Intermediate</span>
+                    <span className="text-foreground/60 text-xs">
+                      Intermediate
+                    </span>
                   </div>
                 </div>
               </div>
@@ -263,15 +275,23 @@ const Resume = () => {
                 <div className="space-y-3">
                   <div className="flex justify-between items-center">
                     <span className="text-foreground/80 text-sm">MySQL</span>
-                    <span className="text-foreground/60 text-xs">Intermediate</span>
+                    <span className="text-foreground/60 text-xs">
+                      Intermediate
+                    </span>
                   </div>
                   <div className="flex justify-between items-center">
                     <span className="text-foreground/80 text-sm">MongoDB</span>
-                    <span className="text-foreground/60 text-xs">Intermediate</span>
+                    <span className="text-foreground/60 text-xs">
+                      Intermediate
+                    </span>
                   </div>
                   <div className="flex justify-between items-center">
-                    <span className="text-foreground/80 text-sm">PostgreSQL</span>
-                    <span className="text-foreground/60 text-xs">Intermediate</span>
+                    <span className="text-foreground/80 text-sm">
+                      PostgreSQL
+                    </span>
+                    <span className="text-foreground/60 text-xs">
+                      Intermediate
+                    </span>
                   </div>
                   <div className="flex justify-between items-center">
                     <span className="text-foreground/80 text-sm">Firebase</span>
@@ -279,7 +299,9 @@ const Resume = () => {
                   </div>
                   <div className="flex justify-between items-center">
                     <span className="text-foreground/80 text-sm">Supabase</span>
-                    <span className="text-foreground/60 text-xs">Intermediate</span>
+                    <span className="text-foreground/60 text-xs">
+                      Intermediate
+                    </span>
                   </div>
                 </div>
               </div>
@@ -290,11 +312,15 @@ const Resume = () => {
                 </h3>
                 <div className="space-y-3">
                   <div className="flex justify-between items-center">
-                    <span className="text-foreground/80 text-sm">Google Play Store</span>
+                    <span className="text-foreground/80 text-sm">
+                      Google Play Store
+                    </span>
                     <span className="text-foreground/60 text-xs">Advanced</span>
                   </div>
                   <div className="flex justify-between items-center">
-                    <span className="text-foreground/80 text-sm">Apple App Store</span>
+                    <span className="text-foreground/80 text-sm">
+                      Apple App Store
+                    </span>
                     <span className="text-foreground/60 text-xs">Advanced</span>
                   </div>
                   <div className="flex justify-between items-center">
@@ -302,12 +328,20 @@ const Resume = () => {
                     <span className="text-foreground/60 text-xs">Advanced</span>
                   </div>
                   <div className="flex justify-between items-center">
-                    <span className="text-foreground/80 text-sm">DigitalOcean</span>
-                    <span className="text-foreground/60 text-xs">Intermediate</span>
+                    <span className="text-foreground/80 text-sm">
+                      DigitalOcean
+                    </span>
+                    <span className="text-foreground/60 text-xs">
+                      Intermediate
+                    </span>
                   </div>
                   <div className="flex justify-between items-center">
-                    <span className="text-foreground/80 text-sm">Cloudflare</span>
-                    <span className="text-foreground/60 text-xs">Intermediate</span>
+                    <span className="text-foreground/80 text-sm">
+                      Cloudflare
+                    </span>
+                    <span className="text-foreground/60 text-xs">
+                      Intermediate
+                    </span>
                   </div>
                 </div>
               </div>
@@ -326,12 +360,16 @@ const Resume = () => {
                     <span className="text-foreground/60 text-xs">Advanced</span>
                   </div>
                   <div className="flex justify-between items-center">
-                    <span className="text-foreground/80 text-sm">Android Studio</span>
+                    <span className="text-foreground/80 text-sm">
+                      Android Studio
+                    </span>
                     <span className="text-foreground/60 text-xs">Advanced</span>
                   </div>
                   <div className="flex justify-between items-center">
                     <span className="text-foreground/80 text-sm">Xcode</span>
-                    <span className="text-foreground/60 text-xs">Intermediate</span>
+                    <span className="text-foreground/60 text-xs">
+                      Intermediate
+                    </span>
                   </div>
                   <div className="flex justify-between items-center">
                     <span className="text-foreground/80 text-sm">VS Code</span>

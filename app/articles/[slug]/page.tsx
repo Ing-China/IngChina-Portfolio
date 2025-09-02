@@ -36,7 +36,8 @@ const ArticleDetail = async ({ params }: ArticleDetailProps) => {
   // Navigation logic
   const currentIndex = articles.findIndex((a) => a.slug === slug);
   const previousArticle = currentIndex > 0 ? articles[currentIndex - 1] : null;
-  const nextArticle = currentIndex < articles.length - 1 ? articles[currentIndex + 1] : null;
+  const nextArticle =
+    currentIndex < articles.length - 1 ? articles[currentIndex + 1] : null;
 
   const formatDate = (dateString: string) => {
     return new Date(dateString).toLocaleDateString("en-US", {
@@ -146,7 +147,7 @@ const ArticleDetail = async ({ params }: ArticleDetailProps) => {
         {/* Article Image */}
         <div className="mb-8 rounded-lg overflow-hidden">
           <Image
-            src={`/images/articles/article${article.id}.png`}
+            src={`/articles/article${article.id}.png`}
             alt={article.title}
             width={800}
             height={400}

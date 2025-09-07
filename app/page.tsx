@@ -16,7 +16,7 @@ const About = () => {
               </h1>
             </div>
             <p className="text-foreground max-w-lg">
-              a full-stack developer with a passion for transforming ideas into
+              a <strong>full-stack developer</strong> with a passion for transforming ideas into
               high-performance applications. Skilled in writing clean code,
               crafting elegant UI/UX designs, and delivering seamless user
               experiences across mobile and web platforms.
